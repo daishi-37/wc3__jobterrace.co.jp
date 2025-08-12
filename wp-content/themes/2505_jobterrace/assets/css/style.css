@@ -6936,40 +6936,112 @@ input[type=submit]:hover {
   }
 }
 /* ------------------------ */
-/* Main visual              */
+/* GSAP Slider (hero)       */
 /* ------------------------ */
 @media all {
-  .top-mv {
+  /* hero スライダーのコンテナ */
+  .hero {
     position: relative;
+    width: 100%;
+    aspect-ratio: 3840/2160;
+    overflow: hidden;
   }
-  .top-mv__sitname {
+  /* スライド背景コンテナ */
+  .hero__bg {
     position: absolute;
-    font-size: 16.2vw;
-    font-weight: var(--font-weight__bold);
-    color: var(--white);
-    opacity: 0.3 !important;
-    bottom: 7vw;
-    left: 2vw;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
-  .top-mv__copy {
+  /* 各スライドアイテムの基本スタイル */
+  .hero__item {
     position: absolute;
-    font-size: 5.2vw;
-    line-height: 7.81vw;
-    font-weight: var(--font-weight__bold);
-    color: var(--white);
-    bottom: 4vw;
-    left: 5vw;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 初期状態ではクリック無効 */
+    -webkit-clip-path: circle(0% at 50% 50%);
+            clip-path: circle(0% at 50% 50%); /* アニメーションの開始状態 */
+    z-index: 1;
+    transition: -webkit-clip-path 0s linear;
+    transition: clip-path 0s linear;
+    transition: clip-path 0s linear, -webkit-clip-path 0s linear; /* GSAPで制御するため、CSSトランジションは一時的に0sに設定 */
   }
-}
-@media (max-width: 1024px) {
-  .top-mv__copy {
-    font-size: 30rem;
-    line-height: 45rem;
+  /* アクティブなスライド */
+  .hero__item.is-active {
+    pointer-events: auto;
+    -webkit-clip-path: circle(72% at 50% 50%);
+            clip-path: circle(72% at 50% 50%);
+    z-index: 3;
+    /* clip-path はGSAPでアニメーションされる */
   }
-  .top-mv__sitname {
-    font-size: 59rem;
-    left: 14rem;
-    bottom: 45rem;
+  /* 古いアクティブなスライド（GSAPでアニメーション後に非表示になる） */
+  .hero__item.is-old-active {
+    z-index: 2; /* 新しいスライドの下に配置 */
+  }
+  /* スケールアニメーション用のインナー要素 */
+  .hero__item__scale {
+    width: 100%;
+    height: 100%;
+    transform: scale(1); /* GSAPでアニメーションされる */
+    transform-origin: center center;
+  }
+  /* 画像の表示調整 */
+  .hero__item img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+  }
+  /* ナビゲーションエリア */
+  .hero__nav-area {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+  .hero__nav__list {
+    display: flex;
+    gap: 10px;
+    margin-right: 15px;
+  }
+  .hero__nav__item button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  .hero__nav__item.is-active button {
+    background-color: #fff;
+    color: #333;
+  }
+  /* プログレスバー */
+  .hero__nav__progress {
+    display: block;
+    width: 80px; /* プログレスバーの長さ */
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__nav__progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform-origin: left center;
+    transform: scaleX(0); /* 初期状態では非表示 */
   }
 }
 /* ------------------------ */
@@ -7030,7 +7102,7 @@ input[type=submit]:hover {
     margin-bottom: 14.74vw;
     background-color: var(--white);
     border-radius: 53px;
-    padding-top: 202px;
+    padding-top: 62px;
     padding-bottom: 132px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
@@ -7088,7 +7160,7 @@ input[type=submit]:hover {
     width: 310rem;
     max-width: unset;
     border-radius: 20rem;
-    padding-top: 67rem;
+    padding-top: 45rem;
     padding-bottom: 45rem;
   }
   .top-message__box-title {
