@@ -1,0 +1,32 @@
+@use "../mixin/breakpoint" as *;
+
+
+/* ------------------------ */
+/* type1.                   */
+/* ------------------------ */
+@media all {
+    .section-type1 {
+        border-radius: 60px 60px 0 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        position: relative;
+        padding: 194px 30px 200px 384px;
+        margin-top: -60px;
+    }
+
+    .section-type1__box {
+        position: relative;
+        width: 100%;
+        max-width: 1316px;
+        min-height: 645px;
+    }
+}
+@include md {
+    .section-type1 {
+        padding: 90rem 15rem 60rem;
+        margin-top: -20rem;
+        border-radius: 20rem 20rem 0 0;
+    }
+    .section-type1__box {
+        min-height: unset;
+    }
+}

@@ -1,0 +1,46 @@
+@use "../mixin/breakpoint" as *;
+
+@include all {
+    .fade {
+        opacity: 0;
+        transition: .8s;
+        transform: translate(0, 100px);
+    }
+
+
+    /* 方向＆距離系：重複不可 */
+    .fade.fade-up-50 {
+        transform: translate(0, 50px);
+    }
+    .fade.fade-right-50 {
+        transform: translate(-50px, 0);
+    }
+    .fade.fade-left-50 {
+        transform: translate(50px, 0);
+    }
+    .fade.fade-down-50 {
+        transform: translate(0, -50px);
+    }
+
+
+      /* 遅れ系 */
+    .fade.fade-delay {
+        transition-delay: .1s;
+    }
+    .fade.fade-delay-500 {
+        transition-delay: .5s;
+    }
+    .fade.fade-delay-800 {
+        transition-delay: .8s;
+    }
+    .fade.fade-delay-1000 {
+        transition-delay: 1s;
+    }
+    
+    
+    /* 表示用*/
+    .fade.fade-in {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}

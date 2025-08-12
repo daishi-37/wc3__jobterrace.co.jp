@@ -1,0 +1,60 @@
+@use "../mixin/breakpoint" as *;
+
+/****************************************************/
+/* type1                                            */
+/****************************************************/
+.h3-type1__figure img {
+    border-radius: 30px;
+}
+
+.h3-type1__h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(100%, 445px);
+    height: 72px;
+    background-color: var(--orange);
+    font-size: 30px;
+    font-weight: var(--font-weight__bold);
+    color: var(--white);
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    margin: 0 auto;
+    margin-top: -36px;
+    position: relative;
+}
+
+.h3-type1__text {
+    font-size: 20px;
+    line-height: 34px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.h3-type1 {
+    padding-bottom: 100px;
+}
+
+@include md {
+    .h3-type1__figure img {
+        border-radius: 20px;
+    }
+
+    .h3-type1__h3 {
+        width: 280px;
+        height: 50px;
+        margin-top: -25px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    
+    .h3-type1__text {
+        padding-top: 20px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+    
+    .h3-type1 {
+        padding-bottom: 50px;
+    }
+}

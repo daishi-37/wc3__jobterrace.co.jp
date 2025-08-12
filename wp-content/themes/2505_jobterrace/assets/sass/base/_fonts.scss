@@ -1,0 +1,28 @@
+@use "../mixin/breakpoint" as *;
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 400;
+    src:
+    url("../../../../../wp-includes/fonts/NotoSansJP-Regular.woff2")format("woff2"),
+    ;
+}
+
+@font-face {
+    font-family: 'Noto Sans JP';
+    font-style: normal;
+    font-weight: 900;
+    src:
+    url("../../../../../wp-includes/fonts/NotoSansJP-Black.woff2")format("woff2"),
+    ;
+}
+
+@font-face {
+    font-family: 'Hind';
+    font-style: normal;
+    font-weight: 900;
+    src:
+    url("../../../../../wp-includes/fonts/Hind-Bold.woff2")format("woff2"),
+    ;
+}

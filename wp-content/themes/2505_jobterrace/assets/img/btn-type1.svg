@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_レイヤー_2" data-name="レイヤー 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.85 30.85">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #222;
+        stroke-miterlimit: 10;
+        stroke-width: .85px;
+      }
+
+      .cls-2 {
+        fill: #222;
+      }
+    </style>
+  </defs>
+  <g id="_テキスト" data-name="テキスト">
+    <g>
+      <circle class="cls-1" cx="15.43" cy="15.43" r="15" transform="translate(-2.27 28.18) rotate(-80.78)"/>
+      <path class="cls-2" d="M14.1,21.14c-.31,0-.62-.11-.87-.33-.55-.48-.61-1.32-.13-1.87l3.17-3.64-3.17-3.64c-.48-.55-.42-1.39.13-1.87.55-.48,1.39-.42,1.87.13l4.68,5.38-4.68,5.38c-.26.3-.63.46-1,.46Z"/>
+    </g>
+  </g>
+</svg>

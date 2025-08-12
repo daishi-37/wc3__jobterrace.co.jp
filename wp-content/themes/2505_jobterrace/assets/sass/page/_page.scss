@@ -1,0 +1,13 @@
+@use "../mixin/breakpoint" as *;
+
+
+/****************************************************/
+/* pagetype1-content                                */
+/****************************************************/
+@include all {
+    .pagetype1-content {
+        background-color: var(--gray2);
+        padding-top: 83px;
+        padding-bottom: 60px;
+    }
+}

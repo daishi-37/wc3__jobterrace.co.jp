@@ -1,0 +1,63 @@
+@use "../mixin/breakpoint" as *;
+
+/****************************************************/
+/* type1                                            */
+/****************************************************/
+@include all {
+    .mv-type1 {
+        position: relative;
+    }
+
+    .mv-type1__obj1 {
+        position: absolute;
+        left: 0;
+        top: 0;
+        max-width: 519px;
+        width: 40vw;
+        z-index: 1;
+    }
+
+    .mv-type1__title {
+        position: absolute;
+        left: 385px;
+        top: 160px;
+        z-index: 2;
+    }
+
+    .mv-type1__title-en {
+        font-size: 100px;
+        line-height: 90px;
+        font-family: var(--font-hind);
+        color: var(--white);
+        padding-bottom: 20px;
+    }
+
+    .mv-type1__title-ja {
+        font-size: 24px;
+        letter-spacing: 0.1em;
+        font-weight: var(--font-weight__ragular);
+        color: var(--white);
+    }
+}
+@include md {
+    .mv-type1__obj1 {
+        width: 112rem;
+        left: 0;
+        top: 211rem;
+    }
+
+    .mv-type1__title {
+        left: 10rem;
+        top: 246rem;
+    }
+
+    .mv-type1__title-en {
+        font-size: 40rem;
+        line-height: 37.7rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .mv-type1__title-ja {
+        font-size: 12rem;
+    }
+}

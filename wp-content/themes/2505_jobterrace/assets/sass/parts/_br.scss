@@ -1,0 +1,41 @@
+@use "../mixin/breakpoint" as *;
+
+.br-sm {
+  display: none;
+
+  @include sm {
+    display: block;
+  }
+}
+
+.br-md {
+  display: none;
+
+  @include md {
+    display: block;
+  }
+}
+
+.br-mdn {
+  display: block;
+
+  @include md {
+    display: none;
+  }
+}
+
+.br-lg {
+  display: block;
+
+  @include md {
+    display: none;
+  }
+}
+
+.br-ftsm {
+  display: none;
+
+  @include ftsm {
+    display: block;
+  }
+}
