@@ -30,6 +30,7 @@
         font-family: var(--font-hind);
         color: var(--white);
         padding-bottom: 20px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .mv-type1__title-ja {
@@ -37,6 +38,7 @@
         letter-spacing: 0.1em;
         font-weight: var(--font-weight__ragular);
         color: var(--white);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 }
 @include md {
