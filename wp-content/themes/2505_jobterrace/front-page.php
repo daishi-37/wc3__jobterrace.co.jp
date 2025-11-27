@@ -4,6 +4,119 @@
 ?>
 <main class="main">
     <div class="main__inner">
+        <style>
+            /* hero スライダーのコンテナ */
+            .hero {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 3840 / 2160;
+                overflow: hidden;
+            }
+
+            /* スライド背景コンテナ */
+            .hero__bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* 各スライドアイテムの基本スタイル */
+            .hero__item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none; /* 初期状態ではクリック無効 */
+                clip-path: circle(0% at 50% 50%); /* アニメーションの開始状態 */
+                z-index: 1;
+                transition: clip-path 0s linear; /* GSAPで制御するため、CSSトランジションは一時的に0sに設定 */
+            }
+
+            /* アクティブなスライド */
+            .hero__item.is-active {
+                pointer-events: auto;
+                clip-path: circle(72% at 50% 50%);
+                z-index: 3;
+                /* clip-path はGSAPでアニメーションされる */
+            }
+
+            /* 古いアクティブなスライド（GSAPでアニメーション後に非表示になる） */
+            .hero__item.is-old-active {
+                z-index: 2; /* 新しいスライドの下に配置 */
+            }
+
+            /* スケールアニメーション用のインナー要素 */
+            .hero__item__scale {
+                width: 100%;
+                height: 100%;
+                transform: scale(1); /* GSAPでアニメーションされる */
+                transform-origin: center center;
+            }
+
+            /* 画像の表示調整 */
+            .hero__item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* ナビゲーションエリア */
+            .hero__nav-area {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10;
+                display: flex;
+                align-items: center;
+            }
+
+            .hero__nav__list {
+                display: flex;
+                gap: 10px;
+                margin-right: 15px;
+            }
+
+            .hero__nav__item button {
+                background: none;
+                border: 1px solid #fff;
+                color: #fff;
+                padding: 5px 10px;
+                cursor: pointer;
+                font-size: 14px;
+                border-radius: 5px;
+            }
+
+            .hero__nav__item.is-active button {
+                background-color: #fff;
+                color: #333;
+            }
+
+            /* プログレスバー */
+            .hero__nav__progress {
+                display: block;
+                width: 80px; /* プログレスバーの長さ */
+                height: 2px;
+                background-color: rgba(255, 255, 255, 0.5);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero__nav__progress-bar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                transform-origin: left center;
+                transform: scaleX(0); /* 初期状態では非表示 */
+            }
+        </style>
         <section class="hero">
             <div class="hero__bg">
                 <ul>
@@ -28,7 +141,6 @@
                             </picture>
                         </div>
                     </li>
-
                 </ul>
                 <div class="hero__nav-area">
                     <div class="hero__nav__list">
@@ -43,20 +155,6 @@
         <section class="top-message">
             <div class="top-message__inner">
                 <div class="top-message__bg">
-                    <div class="top-message__obj1">
-                        <picture>
-                            <source srcset="<?= $topimg; ?>/about__obj1-sp.svg" media="(max-width: 1024px)">
-                            <source srcset="<?= $topimg; ?>/about__obj1.svg" media="(min-width: 1025px)">
-                            <img src="<?= $topimg; ?>/about__obj1.svg" alt="">
-                        </picture>
-                    </div>
-                    <div class="top-message__obj2">
-                        <picture>
-                            <source srcset="<?= $topimg; ?>/about__obj2-sp.svg" media="(max-width: 1024px)">
-                            <source srcset="<?= $topimg; ?>/about__obj2.svg" media="(min-width: 1025px)">
-                            <img src="<?= $topimg; ?>/about__obj2.svg" alt="">
-                        </picture>
-                    </div>
                     <div class="top-message__img1 fade fade-up-50">
                         <img src="<?= $topimg; ?>/about__img1.jpg" alt="">
                     </div>
@@ -75,28 +173,10 @@
                             みなさまと一緒に日々精進を<br class="br-md">重ねていきたいと思っています。<br>
                         </p>
                     </div>
-                    <div class="top-message__box-obj1">
-                        <img src="<?= $topimg; ?>/about__box-obj1.svg" alt="">
-                    </div>
                 </div>
             </div>
         </section>
         <section class="top-business section-type1">
-            <div class="top-business__bg">
-                <div class="top-business__obj1">
-                    <picture>
-                        <source srcset="<?= $topimg; ?>/business__obj1.svg" media="(min-width: 1025px)">
-                        <img src="<?= $topimg; ?>/business__obj1.svg" alt="">
-                    </picture>
-                </div>
-                <div class="top-business__obj2">
-                    <picture>
-                        <source srcset="<?= $topimg; ?>/business__obj2-sp.svg" media="(max-width: 1024px)">
-                        <source srcset="<?= $topimg; ?>/business__obj2.svg" media="(min-width: 1025px)">
-                        <img src="<?= $topimg; ?>/business__obj2.svg" alt="">
-                    </picture>
-                </div>
-            </div>
             <div class="top-business__inner">
                 <div class="top-business__box section-type1__box">
                     <h2 class="top-business__title h2-type1 fade fade-up-50">
@@ -121,21 +201,6 @@
         </section>
         <section class="top-recruit section-type1">
             <div class="top-recruit__inner">
-                <div class="top-recruit__objs1">
-                    <div class="top-recruit___obj2">
-                        <picture>
-                            <source srcset="<?= $topimg; ?>/recruit__obj2.svg" media="(min-width: 1281px)">
-                            <source srcset="<?= $topimg; ?>/recruit__obj2-sp.svg" media="(max-width: 1280px)">
-                            <img src="<?= $topimg; ?>/recruit__obj2.svg" alt="">
-                        </picture>
-                    </div>
-                    <div class="top-recruit__obj3">
-                        <picture>
-                            <source srcset="<?= $topimg; ?>/recruit__obj3.svg" media="(min-width: 1025px)">
-                            <img src="<?= $topimg; ?>/recruit__obj3.svg" alt="">
-                        </picture>
-                    </div>
-                </div>
                 <div class="top-recruit__box section-type1__box">
                     <div class="top-recruit__title h2-type1 fade fade-up-50">
                         Recruit
@@ -179,14 +244,6 @@
                         </a>
                     </div>
                 </div>
-                <div class="top-recruti__bojs2">
-                    <div class="top-recruit___obj1">
-                        <picture>
-                            <source srcset="<?= $topimg; ?>/recruit__obj1.svg" media="(min-width: 1025px)">
-                            <img src="<?= $topimg; ?>/recruit__obj1.svg" alt="">
-                        </picture>
-                    </div>
-                </div>
             </div>
         </section>
         <section class="top-about section-type1">
@@ -223,11 +280,25 @@
                 </div>
             </div>
         </section>
+        <div class="objs">
+            <div class="objs__obj objs__obj1"></div>
+            <div class="objs__obj objs__obj2"></div>
+            <div class="objs__obj objs__obj3"></div>
+            <div class="objs__obj objs__obj4"></div>
+            <div class="objs__obj objs__obj5"></div>
+            <div class="objs__obj objs__obj6"></div>
+            <div class="objs__obj objs__obj7"></div>
+            <div class="objs__obj objs__obj8"></div>
+            <div class="objs__obj objs__obj9"></div>
+            <div class="objs__obj objs__obj10"></div>
+            <div class="objs__obj objs__obj11"></div>
+        </div>
     </div>
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/CustomEase.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 <script>
     class HeroSlider {
         constructor() {
@@ -383,9 +454,74 @@
     window.addEventListener("load", () => {
         new HeroSlider();
     });
-  // 元のサイトから CustomEase の定義を抽出してここに記述することも検討してください
-  // 例えば: CustomEase.create("transform","M0,0 C0.44,0.05 0.17,1 1,1 ");
-  // CustomEase.create("colorAndOpacity","M0,0 C0.26,0.16 0.1,1 1,1 ");
+    // 元のサイトから CustomEase の定義を抽出してここに記述することも検討してください
+    // 例えば: CustomEase.create("transform","M0,0 C0.44,0.05 0.17,1 1,1 ");
+    // CustomEase.create("colorAndOpacity","M0,0 C0.26,0.16 0.1,1 1,1 ");
+
+    // ScrollTriggerの初期化
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // .objsの参照を取得
+    const objsElement = document.querySelector(".objs");
+    
+    // すべてのposクラスを削除する関数
+    function removeAllPosClasses() {
+        objsElement.classList.remove("pos1", "pos2", "pos3", "pos4");
+    }
+    
+    // セクションとそれに対応するposクラスの定義
+    const sections = [
+        { selector: ".top-message", posClass: "pos1" },
+        { selector: ".top-business", posClass: "pos2" },
+        { selector: ".top-recruit", posClass: "pos3" },
+        { selector: ".top-about", posClass: "pos4" }
+    ];
+    
+  // メディアクエリの設定
+  const isMobile = window.matchMedia("(max-width: 1024px)");
+  
+  // メディアクエリに応じたトリガー位置を設定する関数
+  function createScrollTriggers() {
+    // 既存のScrollTriggerをすべて削除
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    
+    // 画面サイズに応じたトリガー位置を設定
+    const startPosition = isMobile.matches ? "top top" : "top 30%";
+    const endPosition = isMobile.matches ? "bottom top" : "bottom 30%";
+    
+    // 各セクションに対してScrollTriggerを設定
+    sections.forEach(section => {
+      ScrollTrigger.create({
+        trigger: section.selector,
+        start: startPosition, // 画面サイズに応じたトリガー開始位置
+        end: endPosition, // 画面サイズに応じたトリガー終了位置
+        onEnter: function() {
+          removeAllPosClasses();
+          objsElement.classList.add(section.posClass);
+        },
+        onEnterBack: function() {
+          removeAllPosClasses();
+          objsElement.classList.add(section.posClass);
+        },
+        onLeave: function() {
+          // 次のセクションに移動するときは何もしない（次のセクションのonEnterが発火するため）
+        },
+        onLeaveBack: function() {
+          // 前のセクションに戻るときは何もしない（前のセクションのonEnterBackが発火するため）
+          // ただし、一番上のセクション（.top-message）より上に戻る場合はすべてのクラスを削除
+          if (section.selector === ".top-message") {
+            removeAllPosClasses();
+          }
+        }
+      });
+    });
+  }
+  
+  // 初期設定
+  createScrollTriggers();
+  
+  // 画面サイズが変更されたときにトリガー位置を再設定
+  isMobile.addEventListener("change", createScrollTriggers);
 </script>
 
 <?php get_footer(); ?>

@@ -14,6 +14,7 @@
         left: 75px;
         top: 0;
         z-index: var(--zindex__menu);
+        z-index: 9999;
     }
     
     .header-logo__img {
@@ -31,6 +32,7 @@
         width: 290px;
         z-index: var(--zindex__header);
         transition: all 0.3s ease-in-out;
+        z-index: 9998;
     }
 
     .show__header-navi .header-navi {
@@ -116,6 +118,7 @@
         z-index: var(--zindex__menu);
         right: 15rem;
         top: 21rem;
+        z-index: 9999;
     }
 
     .header-btn__bar {

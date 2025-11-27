@@ -10,8 +10,8 @@
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="keywords" content="">
-        <meta name="description" content="">
+        <meta name="keywords" content="ジョブテラス">
+        <meta name="description" content="ジョブテラスは、「人と仕事、そして社会に未来を照らす」ビジョンのもと、企業の採用活動を社外人事担当として全面的にサポートしています。採用戦略の立案から実行、効果測定まで、一貫して伴走することで、採用担当者様の負担を軽減し、最適な人材との出会いを創出します。">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- <title><?php wp_title('|', true, 'right').bloginfo('name'); ?></title> -->
         <?php wp_head(); ?>

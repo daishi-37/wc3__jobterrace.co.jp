@@ -18,6 +18,7 @@
         width: 100%;
         max-width: 1316px;
         min-height: 645px;
+        z-index: 2000;
     }
 }
 @include md {
