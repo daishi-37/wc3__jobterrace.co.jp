@@ -1,0 +1,9 @@
+# includeフォルダをGit対象外に設定
+wp-includes/
+include/
+
+# その他の一般的な除外ファイル
+.DS_Store
+Thumbs.db
+*.log
+.htaccess
