@@ -704,6 +704,7 @@
     max-width: 990px;
     margin-left: auto;
     margin-top: 88px;
+    font-size: 16px;
 }
 .company-profile .content ul li .map {
     width: 100%;
@@ -731,6 +732,46 @@
     top: 12px;
     left: 0;
 }
+.company-profile.sustainability-box .content ul {
+    margin-top: 20px;
+}
+
+
+.company-profile.sustainability-box .content ul li {
+    border: none;
+    padding: 0;
+    padding-bottom: 20px;
+}
+
+.company-profile.sustainability-box .content ul li .text {
+    font-size: 24px;
+    line-height: 1.75;
+    letter-spacing: 0.075em;
+}
+
+.company-profile.sustainability-box .content ul li .img {
+    padding: 13px 25px;
+    flex-shrink: 0;
+}
+
+.company-profile.sustainability-box .content ul .img-text .img img {
+    width: 100px;
+}
+
+.company-profile.sustainability-box .content ul .img-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.company-profile.sustainability-box .content ul .img-text .txt {
+    font-size: 20px;
+    line-height: 1.75;
+    letter-spacing: 0.075em;
+    flex: 1;
+}
+
 @media(max-width: 1700px){
     .company-profile .bg_about_04{
         right: -30px;
@@ -772,6 +813,18 @@
         right: -15px;
         top: 16px;
         width: 165px;
+    }
+
+    .company-profile.sustainability-box .content ul .img-text {
+        flex-direction: column; 
+        row-gap: 20px;
+    }
+    
+    .company-profile.sustainability-box .content ul li .text {
+        font-size: 20px;
+    }
+    .company-profile.sustainability-box .content ul .img-text .txt {
+        font-size: 16px;
     }
 }
 .instagram-box {

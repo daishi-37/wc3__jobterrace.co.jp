@@ -136,6 +136,12 @@ select {
   font-weight: 900;
   src: url("../../../../../wp-includes/fonts/Hind-Bold.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Klee One";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../../../../wp-includes/fonts/KleeOne-Regular.ttf") format("truetype");
+}
 :root {
   --white: #FFFFFF;
   --gray: #8F8F8F;
@@ -144,6 +150,7 @@ select {
   --black: #222222;
   --font-family: "Noto Sans JP", sans-serif;
   --font-hind: "Hind", serif;
+  --font-klee-one: "Klee One", cursive;
   --font-weight__regular: 400;
   --font-weight__bold: 700;
   --font-weight__black: 900;
@@ -7507,6 +7514,8 @@ input[type=submit]:hover {
     left: -30px;
   }
   .top-message__box-text {
+    font-family: var(--font-klee-one);
+    font-weight: var(--font-weight__regular);
     font-size: 22px;
     line-height: 50px;
     text-align: center;
@@ -7870,14 +7879,14 @@ input[type=submit]:hover {
   .top-about__lists {
     display: grid;
     grid-template-columns: 1fr;
-    row-gap: 30px;
+    row-gap: 10px;
   }
   .top-about__list-link {
     display: block;
     width: 100%;
-    height: 125px;
+    height: 100px;
     background-color: var(--white);
-    border-radius: 30px;
+    border-radius: 25px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     font-size: 30px;
     display: flex;
